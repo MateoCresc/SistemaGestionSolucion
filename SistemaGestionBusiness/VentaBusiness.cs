@@ -8,7 +8,7 @@ using SistemaGestionData;
 
 namespace SistemaGestionBusiness
 {
-    internal class VentaBusiness
+    public class VentaBusiness
     {
         public static List<Venta> ObtenerVenta(int IDVenta)
         {

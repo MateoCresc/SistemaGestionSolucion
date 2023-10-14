@@ -8,7 +8,7 @@ using SistemaGestionData;
 
 namespace SistemaGestionBusiness
 {
-    internal class ProductoBusiness
+    public class ProductoBusiness
     {
         public static List<Producto> ObtenerProducto(int IDProducto)
         {

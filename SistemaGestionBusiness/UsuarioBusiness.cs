@@ -8,7 +8,7 @@ using SistemaGestionData;
 
 namespace SistemaGestionBusiness
 {
-    internal class UsuarioBusiness
+    public class UsuarioBusiness
     {
         public static List<Usuario> ObtenerUsuario(int IDUsuario)
         {
@@ -31,6 +31,19 @@ namespace SistemaGestionBusiness
             UsuarioData.EliminarUsuario(Usuario);
         }
 
+        public static bool Login(string username, string password)
+        {
+            var usuario = UsuarioData.ObtenerUsuarioPorNombreUsuario(username).FirstOrDefault();
+            if (usuario == null)
+            {
+                return false;
+            }
+            if (password == usuario.Contraseña)
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }

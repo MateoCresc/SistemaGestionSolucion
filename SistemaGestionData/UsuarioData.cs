@@ -53,6 +53,47 @@ namespace SistemaGestionData
             return lista;
         }
 
+        public static List<Usuario> ObtenerUsuarioPorNombreUsuario(string nombreUsuario)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            var query = "SELECT Id, Nombre, Apellido, NombreUsuario, Contraseña, Mail FROM Usuario WHERE NombreUsuario=@NombreUsuario;";
+
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                conexion.Open();
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    var parametro = new SqlParameter();
+                    parametro.ParameterName = "NombreUsuario";
+                    parametro.SqlDbType = SqlDbType.VarChar;
+                    parametro.Value = nombreUsuario;
+
+                    comando.Parameters.Add(parametro);
+
+                    using (SqlDataReader dr = comando.ExecuteReader())
+                    {
+                        if (dr.HasRows)
+                        {
+                            while (dr.Read())
+                            {
+                                var usuario = new Usuario();
+                                usuario.Id = Convert.ToInt32(dr["Id"]);
+                                usuario.Nombre = dr["Nombre"].ToString();
+                                usuario.Apellido = dr["Apellido"].ToString();
+                                usuario.NombreUsuario = dr["NombreUsuario"].ToString();
+                                usuario.Contraseña = dr["Contraseña"].ToString();
+                                usuario.Mail = dr["Mail"].ToString();
+                                lista.Add(usuario);
+
+                            }
+                        }
+                    }
+                }
+            }
+            return lista;
+        }
+
         public static List<Usuario> ListarUsuario()
         {
             List<Usuario> lista = new List<Usuario>();
