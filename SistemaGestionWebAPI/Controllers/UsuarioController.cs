@@ -32,5 +32,11 @@ namespace SistemaGestionWebAPI.Controllers
             return UsuarioBusiness.Login(usuarioLogin.Username, usuarioLogin.Password);
         }
 
+        [HttpPut]
+
+        public void Update([FromBody] Usuario usuario)
+        {
+            UsuarioBusiness.ModificarUsuario(usuario);
+        }
     }
 }

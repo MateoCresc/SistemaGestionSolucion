@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SistemaGestionBusiness;
 using SistemaGestionEntities;
+using SistemaGestionWebAPI.Models;
 
 namespace SistemaGestionWebAPI.Controllers
 {
@@ -21,6 +22,27 @@ namespace SistemaGestionWebAPI.Controllers
         public IEnumerable<Producto> Get(int productoID)
         {
             return ProductoBusiness.ObtenerProducto(productoID);
+        }
+
+        [HttpPost]
+
+        public void Insert ([FromBody] Producto producto)
+        {
+           ProductoBusiness.CrearProducto(producto);
+        }
+
+        [HttpPut]
+
+        public void Update([FromBody] Producto producto)
+        {
+            ProductoBusiness.ModificarProducto(producto);
+        }
+
+        [HttpDelete]
+
+        public void Delete([FromBody] int idProducto)
+        {
+            ProductoBusiness.EliminarProducto(idProducto);
         }
     }
 }

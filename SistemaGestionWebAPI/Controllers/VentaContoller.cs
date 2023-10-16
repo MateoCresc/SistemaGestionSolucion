@@ -22,5 +22,12 @@ namespace SistemaGestionWebAPI.Controllers
         {
             return VentaBusiness.ObtenerVenta(ventaID);
         }
+
+        [HttpPost]
+
+        public void Insert([FromBody] Venta Venta)
+        {
+            VentaBusiness.CrearVenta(Venta);
+        }
     }
 }

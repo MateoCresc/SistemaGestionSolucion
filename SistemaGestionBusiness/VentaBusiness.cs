@@ -18,17 +18,20 @@ namespace SistemaGestionBusiness
         {
             return VentaData.ListarVenta();
         }
-        public static void CrearVenta(Venta Venta)
+        public static void CrearVenta(Venta venta)
         {
-            VentaData.CrearVenta(Venta);
+            Usuario usuario = UsuarioData.ObtenerUsuario(venta.IdUsuario).FirstOrDefault();
+            if (usuario == null)
+                return;
+            VentaData.CrearVenta(venta);
         }
-        public static void ModificarVenta(Venta Venta)
+        public static void ModificarVenta(Venta venta)
         {
-            VentaData.ModificarVenta(Venta);
+            VentaData.ModificarVenta(venta);
         }
-        public static void EliminarVenta(Venta Venta)
+        public static void EliminarVenta(Venta venta)
         {
-            VentaData.EliminarVenta(Venta);
+            VentaData.EliminarVenta(venta);
         }
 
 
