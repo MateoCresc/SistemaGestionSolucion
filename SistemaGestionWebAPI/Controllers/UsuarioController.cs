@@ -27,7 +27,7 @@ namespace SistemaGestionWebAPI.Controllers
 
         [HttpPost]
 
-        public bool Login([FromBody] UsuarioLoginDTO usuarioLogin)
+        public Usuario Login([FromBody] UsuarioLoginDTO usuarioLogin)
         {
             return UsuarioBusiness.Login(usuarioLogin.Username, usuarioLogin.Password);
         }

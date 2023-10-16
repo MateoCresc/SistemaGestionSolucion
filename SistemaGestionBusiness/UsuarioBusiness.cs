@@ -31,18 +31,18 @@ namespace SistemaGestionBusiness
             UsuarioData.EliminarUsuario(Usuario);
         }
 
-        public static bool Login(string username, string password)
+        public static Usuario Login(string username, string password)
         {
             var usuario = UsuarioData.ObtenerUsuarioPorNombreUsuario(username).FirstOrDefault();
             if (usuario == null)
             {
-                return false;
+                return null;
             }
             if (password == usuario.Contraseña)
             {
-                return true;
+                return usuario;
             }
-            return false;
+            return null;
         }
 
     }
