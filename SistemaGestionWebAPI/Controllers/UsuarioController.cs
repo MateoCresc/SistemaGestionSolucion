@@ -25,6 +25,11 @@ namespace SistemaGestionWebAPI.Controllers
             return UsuarioBusiness.ObtenerUsuario(usuarioID);
         }
 
+        public void Insert([FromBody] Usuario usuario)
+        {
+            UsuarioBusiness.CrearUsuario(usuario);
+        }
+
         [HttpPost]
 
         public Usuario Login([FromBody] UsuarioLoginDTO usuarioLogin)
@@ -37,6 +42,12 @@ namespace SistemaGestionWebAPI.Controllers
         public void Update([FromBody] Usuario usuario)
         {
             UsuarioBusiness.ModificarUsuario(usuario);
+        }
+
+        [HttpDelete]
+        public void Delete([FromBody] Usuario idUsuario)
+        {
+            UsuarioBusiness.EliminarUsuario(idUsuario);
         }
     }
 }

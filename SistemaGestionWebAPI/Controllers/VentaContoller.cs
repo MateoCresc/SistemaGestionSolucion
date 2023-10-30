@@ -29,5 +29,10 @@ namespace SistemaGestionWebAPI.Controllers
         {
             VentaBusiness.CrearVenta(Venta);
         }
+
+        public void Delete([FromBody] int idVenta)
+        {
+            VentaBusiness.EliminarVenta(idVenta);
+        }
     }
 }

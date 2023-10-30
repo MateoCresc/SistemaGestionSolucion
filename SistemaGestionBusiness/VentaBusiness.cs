@@ -29,9 +29,9 @@ namespace SistemaGestionBusiness
         {
             VentaData.ModificarVenta(venta);
         }
-        public static void EliminarVenta(Venta venta)
+        public static void EliminarVenta(int idVenta)
         {
-            VentaData.EliminarVenta(venta);
+            VentaData.EliminarVenta(idVenta);
         }
 
 

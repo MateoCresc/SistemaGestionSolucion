@@ -117,7 +117,7 @@ namespace SistemaGestionData
             }
         }
 
-        public static void EliminarVenta(Venta venta)
+        public static void EliminarVenta(int idVenta)
         {
             var query = "DELETE FROM Venta WHERE Id = @Id";
 
